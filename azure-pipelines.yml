@@ -25,4 +25,4 @@ steps:
   inputs:
     script: |
       echo Hello world
-  condition: '$(sonar-scan) == "true"'
+  condition: $(sonar-scan) == "true"
