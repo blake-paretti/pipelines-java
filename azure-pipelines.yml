@@ -9,6 +9,10 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  sonarScan: $(sonar-scan)
+
+container:
 steps:
 - task: Maven@3
   inputs:
@@ -25,4 +29,4 @@ steps:
   inputs:
     script: |
       echo Hello world
-  condition: eq('$(sonar-scan)', 'true')
+  condition: eq('variables['sonarScan']', 'true')
